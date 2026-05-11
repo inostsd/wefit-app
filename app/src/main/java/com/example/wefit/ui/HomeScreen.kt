@@ -12,7 +12,8 @@ import androidx.compose.ui.unit.dp
 fun HomeScreen(
     onVezbeClick: () -> Unit,
     onTreninciClick: () -> Unit,
-    onStatistikaClick: () -> Unit
+    onStatistikaClick: () -> Unit,
+    onPreporukiClick: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -27,7 +28,7 @@ fun HomeScreen(
                 .padding(innerPadding)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
+            verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically)
         ) {
             Button(
                 onClick = onVezbeClick,
@@ -35,7 +36,7 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .height(60.dp)
             ) {
-                Text("Vežbe", style = MaterialTheme.typography.headlineSmall)
+                Text("💪 Vežbe", style = MaterialTheme.typography.headlineSmall)
             }
 
             Button(
@@ -44,7 +45,7 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .height(60.dp)
             ) {
-                Text("Moji Treninzi", style = MaterialTheme.typography.headlineSmall)
+                Text("📅 Moji Treninzi", style = MaterialTheme.typography.headlineSmall)
             }
 
             Button(
@@ -53,7 +54,16 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .height(60.dp)
             ) {
-                Text("Statistika", style = MaterialTheme.typography.headlineSmall)
+                Text("📊 Statistika", style = MaterialTheme.typography.headlineSmall)
+            }
+
+            Button(
+                onClick = onPreporukiClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(60.dp)
+            ) {
+                Text("⭐ Preporuke", style = MaterialTheme.typography.headlineSmall)
             }
         }
     }

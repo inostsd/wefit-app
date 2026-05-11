@@ -11,6 +11,7 @@ import com.example.wefit.ui.TreninciScreen
 import com.example.wefit.ui.DodajVezbuScreen
 import com.example.wefit.ui.DodajTreningScreen
 import com.example.wefit.ui.StatistikaScreen
+import com.example.wefit.ui.PreporukiScreen
 import com.example.wefit.viewmodel.VezbaViewModel
 import com.example.wefit.viewmodel.TreningViewModel
 import com.example.wefit.database.WefiDatabase
@@ -36,7 +37,8 @@ class MainActivity : ComponentActivity() {
                 "home" -> HomeScreen(
                     onVezbeClick = { currentScreen.value = "vezbe" },
                     onTreninciClick = { currentScreen.value = "treninzi" },
-                    onStatistikaClick = { currentScreen.value = "statistika" }
+                    onStatistikaClick = { currentScreen.value = "statistika" },
+                    onPreporukiClick = { currentScreen.value = "preporuke" }
                 )
                 "vezbe" -> VezbeScreen(
                     viewModel = vezbaViewModel,
@@ -59,6 +61,11 @@ class MainActivity : ComponentActivity() {
                 "statistika" -> StatistikaScreen(
                     viewModel = treningViewModel,
                     onNazadClick = { currentScreen.value = "home" }
+                )
+                "preporuke" -> PreporukiScreen(
+                    viewModel = vezbaViewModel,
+                    onNazadClick = { currentScreen.value = "home" },
+                    onVezbaClick = { currentScreen.value = "home" }
                 )
             }
         }
