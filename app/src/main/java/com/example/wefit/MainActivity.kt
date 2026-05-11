@@ -8,6 +8,8 @@ import androidx.compose.runtime.remember
 import com.example.wefit.ui.HomeScreen
 import com.example.wefit.ui.VezbeScreen
 import com.example.wefit.ui.TreninciScreen
+import com.example.wefit.ui.DodajVezbuScreen
+import com.example.wefit.ui.DodajTreningScreen
 import com.example.wefit.viewmodel.VezbaViewModel
 import com.example.wefit.viewmodel.TreningViewModel
 import com.example.wefit.database.WefiDatabase
@@ -37,13 +39,21 @@ class MainActivity : ComponentActivity() {
                 )
                 "vezbe" -> VezbeScreen(
                     viewModel = vezbaViewModel,
-                    onVezbaClick = { /* TODO */ },
-                    onDodajVezbuClick = { /* TODO */ }
+                    onVezbaClick = { currentScreen.value = "home" },
+                    onDodajVezbuClick = { currentScreen.value = "dodaj_vezbu" }
                 )
                 "treninzi" -> TreninciScreen(
                     viewModel = treningViewModel,
-                    onTreningClick = { /* TODO */ },
-                    onDodajTreningClick = { /* TODO */ }
+                    onTreningClick = { currentScreen.value = "home" },
+                    onDodajTreningClick = { currentScreen.value = "dodaj_trening" }
+                )
+                "dodaj_vezbu" -> DodajVezbuScreen(
+                    viewModel = vezbaViewModel,
+                    onNazadClick = { currentScreen.value = "vezbe" }
+                )
+                "dodaj_trening" -> DodajTreningScreen(
+                    viewModel = treningViewModel,
+                    onNazadClick = { currentScreen.value = "treninzi" }
                 )
                 "statistika" -> HomeScreen(
                     onVezbeClick = { currentScreen.value = "vezbe" },
